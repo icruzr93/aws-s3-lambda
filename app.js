@@ -5,7 +5,7 @@
 	// Region must be defined
 	AWS.config.region = 'us-east-1';
 	// Insert your IAM role arn here
-	var roleArn = 'arn:aws:iam::838622159933:role/login-with-amazon-dynamodb';
+	var roleArn = 'ROLE_ARN';
 
 	var userLoggedIn = false;
 	var accessToken, userProfile, lambda;
@@ -77,7 +77,7 @@
 	//Invoke Lambda function
 	function invokeLambda(){
 	  var params = {
-		FunctionName: 'BackspaceLambda', /* required */
+		FunctionName: 'LambdaName', /* required */
 		InvocationType: 'RequestResponse',
 		LogType: 'Tail',
 		Payload: '{"key3": "This is value3 from Browser","key2": "This is value2 from Browser","key1": "This is value1 from Browser"}'
@@ -96,7 +96,7 @@
 
 	function getLambda(){
 	  var params = {
-		FunctionName: 'BackspaceLambda' /* required */
+		FunctionName: 'LambdaName' /* required */
 	  };
 	  lambda.getFunction(params, function(err, data) {
 		if (err) {
